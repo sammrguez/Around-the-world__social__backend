@@ -54,7 +54,6 @@ app.use(
     optionsSuccessStatus: 200,
   })
 );
-
 app.use(requestLogger);
 app.get("/crash-test", () => {
   setTimeout(() => {
