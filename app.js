@@ -17,17 +17,25 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 // conexion  MONGOdb
+const uri =
+  "mongodb+srv://lilipopsmx:MongoPasswordLili@portfolio.1t0tx.mongodb.net/test?retryWrites=true&w=majority&appName=Portfolio";
+const clientOptions = {
+  serverApi: { version: "1", strict: true, deprecationErrors: true },
+};
 
-mongoose.connect("mongodb://127.0.0.1:27017/aroundapi");
-const db = mongoose.connection;
+async function connectToDatabase() {
+  try {
+    await mongoose.connect(uri, clientOptions);
+    console.log("Connected to MongoDB Atlas!");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+    // Si ocurre un error al conectar, puedes decidir cómo manejarlo aquí
+    // Por ejemplo, podrías intentar reconectar o detener el servidor
+    process.exit(1);
+  }
+}
 
-db.on("error", (err) => {
-  console.error("Error de conexión a la base de datos:", err);
-});
-
-db.once("open", () => {
-  console.log("Conexión exitosa a la base de datos");
-});
+connectToDatabase();
 
 // importando routers
 
