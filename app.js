@@ -18,7 +18,7 @@ const app = express();
 
 // conexion  MONGOdb
 const uri =
-  "mongodb+srv://lilipopsmx:MongoPasswordLili@portfolio.1t0tx.mongodb.net/test?retryWrites=true&w=majority&appName=Portfolio";
+  "mongodb+srv://lilipopsmx:MongoPasswordLili@portfolio.1t0tx.mongodb.net/aroundApi?retryWrites=true&w=majority";
 const clientOptions = {
   serverApi: { version: "1", strict: true, deprecationErrors: true },
 };
