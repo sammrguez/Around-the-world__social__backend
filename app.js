@@ -48,10 +48,19 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:3001",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders:
-      "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+    allowedHeaders: [
+      "X-CSRF-Token",
+      "X-Requested-With",
+      "Accept",
+      "Accept-Version",
+      "Content-Length",
+      "Content-MD5",
+      "Content-Type",
+      "Date",
+      "X-Api-Version",
+    ],
     preflightContinue: false,
     optionsSuccessStatus: 200,
   })
