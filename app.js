@@ -66,7 +66,7 @@ app.use(
   })
 );
 app.use(express.json());
-app.options("*", cors());
+// app.options("*", cors());
 app.use(requestLogger);
 app.get("/crash-test", () => {
   setTimeout(() => {
