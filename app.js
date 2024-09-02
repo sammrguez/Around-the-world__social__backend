@@ -50,10 +50,13 @@ app.use(
   cors({
     origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders:
+      "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
     preflightContinue: false,
     optionsSuccessStatus: 200,
   })
 );
+app.options("*", cors());
 app.use(requestLogger);
 app.get("/crash-test", () => {
   setTimeout(() => {
