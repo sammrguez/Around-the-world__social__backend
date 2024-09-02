@@ -2,7 +2,7 @@
   "builds": [
     {
       "src": "/(.*)",
-      "dest": "app.js",
+
       "use": "@vercel/node"
     }
   ],
