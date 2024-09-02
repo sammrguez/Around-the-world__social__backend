@@ -45,10 +45,10 @@ const usersRouter = require("./routes/users");
 const auth = require("./middleware/auth");
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.json());
+
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: [
       "X-CSRF-Token",
@@ -62,9 +62,10 @@ app.use(
       "X-Api-Version",
     ],
     preflightContinue: false,
-    optionsSuccessStatus: 200,
+    optionsSuccessStatus: 204,
   })
 );
+app.use(express.json());
 app.options("*", cors());
 app.use(requestLogger);
 app.get("/crash-test", () => {
