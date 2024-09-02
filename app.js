@@ -16,7 +16,6 @@ const { HttpStatus, HttpResponseMessage } = require("./enums/http");
 const { PORT = 3000 } = process.env;
 const app = express();
 
-// conexion  MONGOdb
 const uri =
   "mongodb+srv://lilipopsmx:MongoPasswordLili@portfolio.1t0tx.mongodb.net/aroundApi?retryWrites=true&w=majority";
 const clientOptions = {
@@ -48,9 +47,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:3002",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: [
+      "Authorization",
       "X-CSRF-Token",
       "X-Requested-With",
       "Accept",
