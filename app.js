@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   cors({
-    origin: "http://localhost:3002",
+    origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: [
       "Authorization",
@@ -91,10 +91,9 @@ app.post(
   }),
   createUser
 );
-
+app.use(auth);
 app.use("/", cardsRouter);
 app.use("/", usersRouter);
-app.use(auth);
 
 app.use(errorLogger);
 app.use(errors());
