@@ -61,7 +61,7 @@ app.use(
       "Date",
       "X-Api-Version",
     ],
-    preflightContinue: false,
+    // preflightContinue: false,
     optionsSuccessStatus: 204,
   })
 );
