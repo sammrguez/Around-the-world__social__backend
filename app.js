@@ -60,6 +60,10 @@ app.get("/crash-test", () => {
     throw new Error("El servidor va a caer");
   }, 0);
 });
+
+app.get("/test", (req, res) => {
+  res.send("Test route is working");
+});
 app.post(
   "/signin",
   celebrate({
