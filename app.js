@@ -91,9 +91,10 @@ app.post(
   }),
   createUser
 );
-app.use(auth);
+
 app.use("/", cardsRouter);
 app.use("/", usersRouter);
+app.use(auth);
 
 app.use(errorLogger);
 app.use(errors());
